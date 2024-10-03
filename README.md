@@ -25,7 +25,7 @@
 
 3. 新建"flask_file"文件夹
    该文件夹用于存放预测临时文件
-    ```
+   
 4. 运行Flask服务：
     ```bash
     python myflask.py
