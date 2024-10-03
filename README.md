@@ -22,9 +22,9 @@
     ```bash
     cd steel-big-data-platform
     ```
-3. 安装依赖：
-    ```bash
-    pip install -r requirements.txt
+
+3. 新建"flask_file"文件夹
+   该文件夹用于存放预测临时文件
     ```
 4. 运行Flask服务：
     ```bash
@@ -44,7 +44,3 @@
     ```bash
     npm run dev
     ```
-
-## 使用
-### 训练模型
-运行 `mltrain.py` 脚本来训练模型：
