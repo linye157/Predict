@@ -16,9 +16,16 @@
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   position: fixed; /* 固定位置 */
-
+  top: 0;
+  left: 0; 
   overflow-y: auto; /* 允许垂直滚动 */
 }
+
+.main-content {
+  margin-left: 200px; /* 预留侧边栏宽度 */
+  padding: 20px; /* 添加内边距以防内容紧贴侧边栏 */
+}
+
 .sidebar h2 {
   margin-bottom: 20px;
 }
