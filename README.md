@@ -6,9 +6,10 @@
 ## 目录结构
 - `mltrain.py`: 训练机器学习模型的脚本。
 - `mlpredict.py`: 预测和评估模型的脚本。
-- `mlutils.py`: 数据处理和模型定义的工具函数。
+- `mlutils.py`: 机器学习模型定义，数据处理和模型定义的工具函数。
+- `LSTMTransformer`:LSTMTransformer模型的定义，训练集，验证集处理，训练，测试
 - `myflask.py`: Flask API服务，用于接收文件并返回预测结果。
-- `my-vue-app/`: 前端Vue.js应用。
+- `my-vue-app/`: 前端Vue.ts应用。
 
 ## 安装
 请按照以下步骤安装和设置项目：
