@@ -43,7 +43,8 @@ class Train_Loader(Dataset):
         return features, targets
         
     def __len__(self):
-        return self.length  
+        return len(self.data)-self.seq_length+1 
+
 
 
 class Test_Loader(Dataset):
@@ -70,7 +71,8 @@ class Test_Loader(Dataset):
         targets = self.data[i+self.seq_length-1:i+self.seq_length, -3:]
         return features, targets
     def __len__(self):
-        return self.length  
+        return len(self.data)-self.seq_length+1 
+
     
 
 
