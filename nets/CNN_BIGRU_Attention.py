@@ -46,7 +46,7 @@ class CNN_BiGRU_Attention(nn.Module):
 
     def forward(self, x):
         # x shape: (batch_size, n_future, 1)
-        x = x.permute(0, 2, 1)  # (batch_size, 1, n_future)
+        # x = x.permute(0, 2, 1)  # (batch_size, 1, n_future)
         
         # CNN
         x = self.relu(self.conv1(x))
@@ -69,12 +69,13 @@ class CNN_BiGRU_Attention(nn.Module):
         x = self.fc2(x)
         
         return x
+    
 
-# Example usage
-n_future = 30  # Example value, adjust as needed
-n_class = 3   # Example value, adjust as needed
+if __name__ == '__main__':
+    n_future = 30  # Example value, adjust as needed
+    n_class = 3   # Example value, adjust as needed
 
-model = CNN_BiGRU_Attention(n_future, n_class)
-input_tensor = torch.randn(32, n_future, 1)  # Example input tensor (batch_size, n_future, 1)
-output = model(input_tensor)
-print(output.shape)
+    model = CNN_BiGRU_Attention(n_future, n_class)
+    input_tensor = torch.randn(512, 1, n_future)  # Example input tensor (batch_size, n_future, 1)
+    output = model(input_tensor)
+    print(output.shape)
