@@ -68,7 +68,7 @@ class CNN_BiGRU_Attention(nn.Module):
         x = self.relu(self.fc1(attn_output))
         x = self.fc2(x)
         
-        return x
+        return x.unsqueeze(1)
     
 
 if __name__ == '__main__':
@@ -76,6 +76,6 @@ if __name__ == '__main__':
     n_class = 3   # Example value, adjust as needed
 
     model = CNN_BiGRU_Attention(n_future, n_class)
-    input_tensor = torch.randn(512, 1, n_future)  # Example input tensor (batch_size, n_future, 1)
+    input_tensor = torch.randn(512, 1,n_future)  # Example input tensor (batch_size, n_future, 1)
     output = model(input_tensor)
     print(output.shape)
