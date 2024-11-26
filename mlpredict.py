@@ -1,4 +1,5 @@
 from mlutils import *
+from sklearn.metrics import r2_score
 
 #确保88%以上的屈服强度YS误差在6%以内，90%以上的抗拉强度TS在6%以内，90%的延伸率在4%EL以内
 def evaluate(y_true, y_pred,):
@@ -41,12 +42,24 @@ def mape(y_true, y_pred):
     mape_TS = np.mean(np.abs((y_true[:,1] - y_pred[:,1]) / y_true[:,1])) * 100
     mape_EL = np.mean(np.abs((y_true[:,2] - y_pred[:,2]) / y_true[:,2])) * 100
     return {'YSmape':mape_YS,'TSmape':mape_TS,'ELmape':mape_EL}
+
+
+#计算R2
+def r2(y_true, y_pred):
+    r2_YS = r2_score(y_true[:,0], y_pred[:,0])
+    r2_TS = r2_score(y_true[:,1], y_pred[:,1])
+    r2_EL = r2_score(y_true[:,2], y_pred[:,2])
+    return {'YS_R2':r2_YS,'TS_R2':r2_TS,'EL_R2':r2_EL}
     
 def predict(model_name, X_test ):
     model = models[model_name]
     model = joblib.load(pre_model_path + model_name + '.pkl')
     y_pred = model.predict(X_test)
     return y_pred
+
+
+
+
 
 if __name__ == '__main__':
     # 读取测试数据
@@ -55,9 +68,10 @@ if __name__ == '__main__':
     for model_name in models.keys():
         y_pred = predict(model_name, test_x)
         print(model_name)
-        print(evaluate(test_y.values, y_pred))
+        # print(evaluate(test_y.values, y_pred))
         print(rmsle(test_y.values, y_pred))
         print(mape(test_y.values, y_pred))
+        print(r2(test_y.values, y_pred))
         print('---------------------------------')
     # y_pred = predict('LightGBM', test_x_scaled)
     # #打印出y_pred和test_y的类型
