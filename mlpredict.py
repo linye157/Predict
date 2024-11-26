@@ -23,7 +23,7 @@ def evaluate(y_true, y_pred,):
             EL+=1
     EL=EL/len(y_true)
 
-    return {'YS':YS*100,'TS':TS*100,'EL':EL*100}
+    return {'YS_Eva':YS*100,'TS_Eva':TS*100,'EL_Eva':EL*100}
 
     
 
@@ -32,7 +32,7 @@ def rmsle(y_true, y_pred):
     rmsle_YS = np.sqrt(mean_squared_error(y_true[:,0], y_pred[:,0]))
     rmsle_TS = np.sqrt(mean_squared_error(y_true[:,1], y_pred[:,1]))
     rmsle_EL = np.sqrt(mean_squared_error(y_true[:,2], y_pred[:,2]))
-    return {'YS':rmsle_YS,'TS':rmsle_TS,'EL':rmsle_EL}
+    return {'YS_RMSE':rmsle_YS,'TS_RMSE':rmsle_TS,'EL_RMSE':rmsle_EL}
 
 
 #计算预测的目标值列表和真实值列表的误差平均百分比
@@ -40,7 +40,7 @@ def mape(y_true, y_pred):
     mape_YS = np.mean(np.abs((y_true[:,0] - y_pred[:,0]) / y_true[:,0])) * 100
     mape_TS = np.mean(np.abs((y_true[:,1] - y_pred[:,1]) / y_true[:,1])) * 100
     mape_EL = np.mean(np.abs((y_true[:,2] - y_pred[:,2]) / y_true[:,2])) * 100
-    return {'YS':mape_YS,'TS':mape_TS,'EL':mape_EL}
+    return {'YSmape':mape_YS,'TSmape':mape_TS,'ELmape':mape_EL}
     
 def predict(model_name, X_test ):
     model = models[model_name]
