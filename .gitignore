@@ -6,3 +6,7 @@ model
 flask_file
 MLPModel.py
 __pycache__
+!data/621data.xlsx
+!data/train_data.xlsx
+!data/test_data.xlsx
+!data/valid_data.xlsx
