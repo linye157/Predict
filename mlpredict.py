@@ -73,6 +73,7 @@ if __name__ == '__main__':
         print(mape(test_y.values, y_pred))
         print(r2(test_y.values, y_pred))
         print('---------------------------------')
+    print('预测完毕！')
     # y_pred = predict('LightGBM', test_x_scaled)
     # #打印出y_pred和test_y的类型
     # print(type(y_pred))

@@ -14,4 +14,5 @@ if __name__ == '__main__':
     for model_name in models.keys():
         model=mltrain_model(train_data_path,model_name)
         print('-----------------------------------')
+    print('模型训练完毕！')
 

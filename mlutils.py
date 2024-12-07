@@ -71,7 +71,7 @@ models = {'Lasso': multi_lasso,'Kernel Ridge': multi_KRR, 'Random Forest': multi
 
 def x_y_split(data_dir,scaler):
     data = pd.read_excel(data_dir, skiprows=0)
-    data = data.astype('float64')
+    data = data.astype('float32')
     x = data.iloc[:, :-3]
     x_scaled = scaler.transform(x)
     y = data.iloc[:, -3:]
@@ -83,7 +83,7 @@ def process_and_save_data():
     train_data = pd.read_excel(train_data_path)
 
     # 转为浮点型
-    train_data = train_data.astype('float64')
+    train_data = train_data.astype('float32')
 
     # 分离特征和目标变量
     train_x = train_data.iloc[:, :-3]
@@ -109,7 +109,7 @@ else:
 scaler = joblib.load(scaler_model_path)
 
 
-# valid_data=valid_data.astype('float64')
+# valid_data=valid_data.astype('float32')
 # valid_data_x=valid_data.iloc[:,:-3]
 # valid_data_x_scaled = scaler.transform(valid_data_x)
 
