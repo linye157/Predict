@@ -75,6 +75,7 @@ def x_y_split(data_dir,scaler):
     x = data.iloc[:, :-3]
     x_scaled = scaler.transform(x)
     y = data.iloc[:, -3:]
+    y = y.values
     return x_scaled,y
 
  #读取训练集数据并标准化保存
