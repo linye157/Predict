@@ -65,21 +65,23 @@ if __name__ == '__main__':
     # 读取测试数据
     test_x, test_y = x_y_split(test_data_path, scaler=joblib.load(scaler_model_path))
     # 预测
-    for model_name in models.keys():
-        y_pred = predict(model_name, test_x)
-        print(model_name)
-        # print(evaluate(test_y.values, y_pred))
-        print(rmsle(test_y.values, y_pred))
-        print(mape(test_y.values, y_pred))
-        print(r2(test_y.values, y_pred))
-        print('---------------------------------')
-    print('预测完毕！')
-    # y_pred = predict('LightGBM', test_x_scaled)
-    # #打印出y_pred和test_y的类型
-    # print(type(y_pred))
-    # print(type(test_y.values))
+    # for model_name in models.keys():
+    #     y_pred = predict(model_name, test_x)
+    #     print(model_name)
+    #     # print(evaluate(test_y.values, y_pred))
+    #     print(rmsle(test_y.values, y_pred))
+    #     print(mape(test_y.values, y_pred))
+    #     print(r2(test_y.values, y_pred))
+    #     print('---------------------------------')
+    # print('预测完毕！')
+    #测试Random Forest模型性能
+    y_pred = predict('Random Forest', test_x)
+    print('Random Forest')
+    print(evaluate(test_y, y_pred))
+    print(rmsle(test_y, y_pred))
+    print(mape(test_y, y_pred))
+    print(r2(test_y, y_pred))
+    print('---------------------------------')
 
-    # print(y_pred.shape)
-    # print(test_y.values.shape)
 
 
