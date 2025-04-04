@@ -10,4 +10,5 @@ __pycache__
 !data/train_data.xlsx
 !data/test_data.xlsx
 !data/valid_data.xlsx
+!data/621data_used.xlsx
 /参考论文
