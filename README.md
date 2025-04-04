@@ -1,9 +1,11 @@
 # 钢铁大数据平台
 
 ## 描述
+
 钢铁大数据平台是一个用于预测钢铁材料性能的机器学习平台。该平台包括数据预处理、模型训练、预测和评估等功能。前端使用Vue.js构建，后端使用Flask框架提供API服务。
 
 ## 目录结构
+
 - `mltrain.py`: 训练机器学习模型的脚本。
 - `mlpredict.py`: 预测和评估模型的脚本。
 - `mlutils.py`: 机器学习模型定义，数据处理和模型定义的工具函数。
@@ -12,6 +14,7 @@
 - `my-vue-app/`: 前端Vue.ts应用。
 
 ## 预测模型使用
+
 - `mltrain.py`: 直接运行，训练机器学习模型
 - `mlpredict.py`: 预测结果，查看机器学习模型性能
 - `CNN_BIGRU_Attention.ipynb`:直接运行，完成模型训练和测试等，指标和机器学习模型相同。来源于 “[Beluga whale optimization: A novel nature-inspired metaheuristic algorithm](https://www.sciencedirect.com/science/article/abs/pii/S0950705122006049)”，白鲸算法，虽然听起来不靠谱，但是性能和部分ML模型相当
@@ -23,42 +26,48 @@
 - `dataprocess.ipynb`:杂七杂八的数据处理操作，缺失值处理，去除重复行，去除异常值、数据集分割等
 
 ## 工艺参数优化
-- `optimize_bayes.ipynb`：这个文件是用来进行工艺参数优化，使用方法为贝叶斯优化，具体流程为：通过预测模型得到不合格样本中各个特征对三个目标列的贡献度，选取前五个特征相关最大的工艺参数，然后当前工艺参数的缓冲比例和该工艺参数的在训练集的范围进行一个取交集得到待优化参数的优化范围，然后通过贝叶斯优化得到最优的工艺参数，然后通过预测模型得到该工艺参数的预测结果，然后通过一个简单的规则判断是否合格，如果合格则停止优化，如果不合格则继续优化，直到优化次数达到最大次数或者优化结果合格为止。
 
+- `optimize_bayes.ipynb`：这个文件是用来进行工艺参数优化，使用方法为贝叶斯优化，具体流程为：通过预测模型得到不合格样本中各个特征对三个目标列的贡献度，选取前五个特征相关最大的工艺参数，然后当前工艺参数的缓冲比例和该工艺参数的在训练集的范围进行一个取交集得到待优化参数的优化范围，然后通过贝叶斯优化得到最优的工艺参数，然后通过预测模型得到该工艺参数的预测结果，然后通过一个简单的规则判断是否合格，如果合格则停止优化，如果不合格则继续优化，直到优化次数达到最大次数或者优化结果合格为止。
 - `optimize_PPO.ipynb`：需要配置gym和stable-baselines3，其中安装stable-baselines3库时注意原环境中的torch版本，使用命令“pip install stable-baselines3[extra] "torch==2.1.0" --no-cache-dir”可指定torch版本安装。采用强化学习方法，结合深度学习PPO算法完成优化
 
 # TODO
+
 - 完成模型可视化，预测结果可视化
 - 完成工艺参数优化结果可视化
+- 设定好对应的3个力学特征，在输入前k个工艺参数后，可以预测第k+1个工艺参数#设计以抗拉强度为主
+- 给出每个工艺参数的范围，或者多条最优值
 
 ### 后端
-1. 克隆仓库：
-    ```bash
-    git clone https://github.com/yourusername/steel-big-data-platform.git
-    ```
-2. 进入项目目录：
-    ```bash
-    cd steel-big-data-platform
-    ```
 
+1. 克隆仓库：
+
+   ```bash
+   git clone https://github.com/yourusername/steel-big-data-platform.git
+   ```
+2. 进入项目目录：
+
+   ```bash
+   cd steel-big-data-platform
+   ```
 3. 新建"flask_file"文件夹
    该文件夹用于存放预测临时文件
-   
 4. 运行Flask服务：
-    ```bash
-    python myflask.py
-    ```
+
+   ```bash
+   python myflask.py
+   ```
 
 ### 前端
+
 1. 进入前端项目目录：
-    ```bash
-    cd my-vue-app
-    ```
+   ```bash
+   cd my-vue-app
+   ```
 2. 安装依赖：
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 3. 运行前端开发服务器：
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
