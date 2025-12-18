@@ -12,3 +12,8 @@ __pycache__
 !data/valid_data.xlsx
 !data/621data_used.xlsx
 /参考论文
+flask_后端.zip
+vue-admin-design.zip
+vue-noadmin-design.zip
+.idea
+models
